@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from book.views import index
+from django.urls import include
 
+#改成book include以后，访问我们的index需要添加工程的path路由+子应用的path
+#127.0.0.1:8000/book/index
+#如果不想要/book 可以将下面的配置改成如下配置
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #path(路由，视图函数名)
+    #path('book/',include('book.urls')),
+    path('',include('book.urls')),
 ]
