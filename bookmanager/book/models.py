@@ -14,5 +14,5 @@ class BookInfo(models.Model):
 
 class PeopleInfo(models.Model):
     name = models.CharField(max_length=20)
-    gender = models.enums('male','female')
+    gender = models.BoolenField()
     book = models.ForeignKey(BookInfo,on_delete=models.CASCADE)
